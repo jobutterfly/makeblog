@@ -14,7 +14,11 @@ body {
 }
 
 header, main, footer {
-    grid-column: 3 / 9;
+    grid-column: 2 / 10;
+}
+
+main {
+    min-height: 100vh;
 }
 
 ul {
@@ -25,17 +29,28 @@ a {
     text-decoration: none;
 }
 
+pre, p {
+    padding-bottom: 1rem;
+}
+
 .title {
     padding: 1rem;
     display: flex;
     justify-content: center;
 }
 
-.navbar-container {
-    padding-top: 1rem;
-}
 .navbar {
+    padding: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
+
+@media(min-width: 768px) {
+    header, main, footer {
+	grid-column: 3 / 9;
+    }
+}
+
+
+

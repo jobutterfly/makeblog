@@ -24,6 +24,9 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", fs));
 
 	http.HandleFunc("/", controllers.ServeIndex);
+	http.HandleFunc("/blog", controllers.ServeBlog);
+	http.HandleFunc("/about", controllers.ServeAbout);
+	http.HandleFunc("/post", controllers.ServePost);
 
 	log.Print("Listening on port :3000");
 	err := http.ListenAndServe(":3000", nil);

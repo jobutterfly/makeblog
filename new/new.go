@@ -1,7 +1,6 @@
 package new
 
 import (
-    "fmt"
     "os"
     "bytes"
     "path/filepath"
@@ -37,8 +36,6 @@ func New(name string, output string) error {
     }
 
     os.WriteFile(output, []byte(wrt.String()), 0666);
-
-    fmt.Printf(wrt.String())
 
     return nil
 }
