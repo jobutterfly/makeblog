@@ -1,0 +1,36 @@
+{{ define "layout" }}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koizumi's Blog</title>
+    <link href="/blog/style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+    <body>
+	<header>
+	    <div class="title">
+		<h1><a href="/">Koizumi's Blog</a></h1>
+	    </div>
+	    <div class="navbar-container">
+		<ul class="navbar">
+		    <li><a href="/about">About</a></li>
+		    <li><a href="/blog">Blog</a></li>
+		    <li><a href="/writings">Writings</a></li>
+		</ul>
+	    </div>
+	</header>
+	<main>
+	    <div>
+		{{ . }}
+	    </div>
+	</main>
+	<footer>
+	    <ul class="navbar">
+		<li><a href="/source">Source Code</a></li>
+		<li><a href="/">Home Page</a></li>
+	    </ul>
+	</footer>
+  </body>
+</html>
+{{ end }}
