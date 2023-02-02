@@ -16,6 +16,6 @@ func ServeAbout(w http.ResponseWriter, r *http.Request) {
     http.ServeFile(w, r, "./blog/about.html");
 }
 
-func ServePost(w http.ResponseWriter, r *http.Request) {
+func ServeMmblog(w http.ResponseWriter, r *http.Request) {
     http.ServeFile(w, r, "./blog/mmblog.html");
 }

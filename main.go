@@ -26,7 +26,7 @@ func main() {
 	http.HandleFunc("/", controllers.ServeIndex);
 	http.HandleFunc("/blog", controllers.ServeBlog);
 	http.HandleFunc("/about", controllers.ServeAbout);
-	http.HandleFunc("/post", controllers.ServePost);
+	http.HandleFunc("/mmblog", controllers.ServeMmblog);
 
 	log.Print("Listening on port :3000");
 	err := http.ListenAndServe(":3000", nil);
@@ -36,8 +36,9 @@ func main() {
 
 	case "new":
 	if len(os.Args) < 4 {
-	    log.Fatal("Expected name of file and output location\nmakeblog new <markdownfile.md> <output.html>\n");
+	    log.Fatal("Not enough arguments, expected, input and output file")
 	}
+
 	if err := new.New(os.Args[2], os.Args[3]); err != nil {
 	    log.Fatal(err);
 	}
@@ -49,11 +50,12 @@ Welcome to makeblog! These are the possible commands:
 
 This command serves the website on port 3000.
 
-    makeblog new <input.md> <output.html>
+    makeblog new -i <input.md> -o <output.html>
 
 This command is for creating new blog posts. It takes the input markdown file,
 parses it into html, places it inside the layout template, and writes into the
-output file. If the file does not exist, it creates a new one.
+output file. If the file does not exist, it creates a new one. The path to the
+must be after the -i or --input flag and the same for the output file.
 `)
 
 	default:
