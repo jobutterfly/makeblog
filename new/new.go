@@ -13,6 +13,21 @@ import (
     "github.com/yuin/goldmark"
 )
 
+func fileContains(s string, fp string) (bool, error) {
+	fullPath, err := getPath(fp)
+	if err != nil {
+	    return false, err
+	}
+
+	content, err := os.ReadFile(fullPath)
+	if err != nil {
+	    return false, err
+	}
+
+	contains := strings.Contains(string(content), s)
+
+	return contains, nil
+}
 
 func getPath(p string) (string, error) {
 	dirPath := "/repos/makeblog"
@@ -193,16 +208,41 @@ func New(input string) error {
 	    return err
 	}
 
-	if err := updateBlog(input); err != nil {
+	funcName := getName(input)
+	funcName = strings.ReplaceAll(funcName, " ", "")
+
+
+	inBlog, err := fileContains(outName, "/blog/blog.html")
+	if err != nil {
 	    return err
 	}
 
-	if err := updateControllers(input); err != nil {
+	inControllers, err := fileContains(funcName, "/controllers/controllers.go")
+	if err != nil {
 	    return err
 	}
 
-	if err := updateMain(input); err != nil {
+	inMain, err := fileContains(funcName, "/main.go")
+	if err != nil {
 	    return err
+	}
+
+	if !inBlog {
+	    if err := updateBlog(input); err != nil {
+		return err
+	    }
+	}
+
+	if !inControllers {
+	    if err := updateControllers(input); err != nil {
+		return err
+	    }
+	}
+
+	if !inMain {
+	    if err := updateMain(input); err != nil {
+		return err
+	    }
 	}
 
 	return nil
