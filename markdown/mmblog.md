@@ -1,6 +1,6 @@
 ## mmblog
 
-Mon Jan 30 2023
+1/30/2023
 
 mmblog stands for micro micro blog. It is a tool written in c to create and host your own blog. The source code is [here](https://github.com/jobutterfly/mmblog) The genesis of this idea came when I was browsing [nozx's](https://nozx.tech) website and I found [twtxt](https://github.com/buckket/twtxt). It seemed like a nice project and I decided to build something similar. I decided to use the C programming language because I wanted to see how the <sys/socket.h> library worked and how easy would it be to build a simple webserver.
 

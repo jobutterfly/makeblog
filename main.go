@@ -26,6 +26,7 @@ func main() {
 	http.HandleFunc("/", controllers.ServeIndex);
 	http.HandleFunc("/blog", controllers.ServeBlog);
 	http.HandleFunc("/about", controllers.ServeAbout);
+	http.HandleFunc("/makeblog", controllers.ServeMakeblog);
 	http.HandleFunc("/mmblog", controllers.ServeMmblog);
 
 	log.Print("Listening on port :3000");

@@ -19,3 +19,7 @@ func ServeAbout(w http.ResponseWriter, r *http.Request) {
 func ServeMmblog(w http.ResponseWriter, r *http.Request) {
     http.ServeFile(w, r, "./blog/mmblog.html");
 }
+
+func ServeMakeblog(w http.ResponseWriter, r *http.Request) {
+    http.ServeFile(w, r, "./blog/makeblog.html");
+}
