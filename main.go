@@ -26,7 +26,6 @@ func main() {
 	http.HandleFunc("/", controllers.ServeIndex);
 	http.HandleFunc("/blog", controllers.ServeBlog);
 	http.HandleFunc("/about", controllers.ServeAbout);
-	http.HandleFunc("/new-test", controllers.ServeNewTest);
 	http.HandleFunc("/mmblog", controllers.ServeMmblog);
 
 	log.Print("Listening on port :3000");
@@ -36,11 +35,11 @@ func main() {
 	}
 
 	case "new":
-	if len(os.Args) < 4 {
-	    log.Fatal("Not enough arguments, expected, input and output file")
+	if len(os.Args) < 3 {
+	    log.Fatal("Not enough arguments, expected input file")
 	}
 
-	if err := new.New(os.Args[2], os.Args[3]); err != nil {
+	if err := new.New(os.Args[2]); err != nil {
 	    log.Fatal(err);
 	}
 	case "help":

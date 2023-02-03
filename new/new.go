@@ -152,7 +152,7 @@ func updateMain(name string) error {
 	return nil
 }
 
-func New(input string, output string) error {
+func New(input string) error {
 	var buf bytes.Buffer
 	var final string
 	var wrt bytes.Buffer
@@ -183,7 +183,13 @@ func New(input string, output string) error {
 	    return err
 	}
 
-	if err := os.WriteFile(output, []byte(wrt.String()), 0666); err != nil {
+	outName := getLast(input)
+	out, err := getPath("/blog/" + outName + ".html");
+	if err != nil {
+	    return err
+	}
+
+	if err := os.WriteFile(out, []byte(wrt.String()), 0666); err != nil {
 	    return err
 	}
 
