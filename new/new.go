@@ -13,6 +13,17 @@ import (
     "github.com/yuin/goldmark"
 )
 
+
+func getPath(p string) (string, error) {
+	dirPath := "/repos/makeblog"
+	hPath, err := os.UserHomeDir()
+	if err != nil {
+	    return "", err
+	}
+	path := filepath.Join(hPath, dirPath, p)
+	return path, nil
+}
+
 func getLast(s string) string {
 	sPath := strings.Split(s, "/")
 	if len(sPath) < 2 {
@@ -42,7 +53,11 @@ func getName(s string) string {
 }
 
 func updateBlog(name string) error {
-	var path string = "./blog/blog.html"
+	path, err := getPath("/blog/blog.html")
+	if err != nil {
+	    return err
+	}
+
 	file, err := os.ReadFile(path)
 	if err != nil {
 	    return err
@@ -77,7 +92,10 @@ func updateBlog(name string) error {
 }
 
 func updateControllers(name string) error {
-	path := "./controllers/controllers.go"
+	path, err:= getPath("/controllers/controllers.go")
+	if err != nil {
+	    return err
+	}
 
 	finalName := getLast(name)
 
@@ -104,7 +122,10 @@ func Serve%s(w http.ResponseWriter, r *http.Request) {
 }
 
 func updateMain(name string) error {
-	path := "./main.go"
+	path, err := getPath("/main.go")
+	if err != nil {
+	    return err
+	}
 
 	reqPath := getLast(name)
 	funcName := getName(name)
@@ -147,7 +168,11 @@ func New(input string, output string) error {
 
 	final = buf.String();
 
-	lp := filepath.Join("new", "layout.html")
+	lp, err:= getPath("/new/layout.html")
+	if err != nil {
+	    return err
+	}
+
 	tmpl := template.New("layout")
 	tmpl, err = tmpl.ParseFiles(lp)
 	if err != nil {
