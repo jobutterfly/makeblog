@@ -1,0 +1,13 @@
+## gowrite
+
+12/2/2023
+
+gowrite was created because I wanted to learn how to make an UI for the terminal. The code can be found [here](https://github.com/jobutterfly/gowrite). It is not completely finished and there are still some things that I need to fix, but it works.
+
+gowrite was created following the tutorial blog posts created by snaptoken, they can be found [here](https://viewsourcecode.org/snaptoken/kilo/). The tutorial aims to write a simple text editor in C. It is very clear and very easy to follow. I was never left wanting for a more thorough explanation of what was happening in the code. It is also very well structured, divided into 7 clear sections. The project can be completed in around 2-7 days depending on how much time you dedicate to it.
+
+What I did was I followed all of the steps in the tutorial, but for every step, I translated the C code to Go. I wanted to deepen my knowledge in Go and wanted to see if it was possible for me to create a text editor in that language. This proved to be the hardest part. Specifically, the ways arrays work in the two different languages makes it a bit confusing to translate the code, but once you wrap your head around it, it is pretty straightforward.
+
+I was not able to finish the tutorial. The last part related to syntax highlighting was the one that gave me the most trouble. I decided to give the project some time and come back to it in the future and see if I'm able to finish it. There is also one bug that occurs if you want to exit the find tool, you'll have to press escape twice, but this is just a minor issue. If I pick up this project in the future, I want to implement tree sitter and lsp functionalities to the editor and vim-like bindings too.
+
+I have learned a lot from this project, I now feel comfortable displaying things in the terminal and I now know how to use VT1000 escape sequences to do it. I also roughly understand how text editors work. I feel prepared to move on to other projects that I have in mind and maybe come back to this one in the future.

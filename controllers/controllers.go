@@ -23,3 +23,7 @@ func ServeMmblog(w http.ResponseWriter, r *http.Request) {
 func ServeMakeblog(w http.ResponseWriter, r *http.Request) {
     http.ServeFile(w, r, "./blog/makeblog.html");
 }
+
+func ServeGowrite(w http.ResponseWriter, r *http.Request) {
+    http.ServeFile(w, r, "./blog/gowrite.html");
+}

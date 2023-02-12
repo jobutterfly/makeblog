@@ -2,7 +2,7 @@
 
 3/2/2023
 
-Makeblog is the tool I built to create this blog. There are still some things that I'd like to imporve on but I think that it is in a position where I can already share the progress that I have made.
+Makeblog is the tool I built to create this blog. Code can be found [here](https://github.com/jobutterlfy/makeblog). There are still some things that I'd like to imporve on but I think that it is in a position where I can already share the progress that I have made.
 
 The reason why created I this tool is to make it easier to write new blog posts. I know there are other tools that can accomplish this same objective, like [Hugo](https://guhugo.io), but I wanted something simpler and I wanted to make it myself. It is easy to write new blog posts because I can write them in [Markdown](https://markdownguide.org) and the program then parses it to html. The parsing is done by an external library called [Goldmark](https://github.com/yuin/goldmark) (I wanted to make things myself but I didn't want to make my own parser, maybe something for the future).
 
